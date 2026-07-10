@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Metadatos básicos -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pantalones — NO NAME</title>
+  <meta name="description" content="Descubre la colección de pantalones NO NAME: jeans, cargos, sweatpants y más, con cortes limpios y materiales de alto gramaje." />
+
+  <!-- Metadatos SEO adicionales -->
+  <meta name="keywords" content="pantalones streetwear, jeans, cargo, sweatpants, ropa urbana, NO NAME">
+  <meta name="author" content="NO NAME">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0a0a0a">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Pantalones — NO NAME">
+  <meta property="og:description" content="Colección de pantalones NO NAME: jeans, cargos y sweatpants con cortes limpios.">
+  <meta property="og:image" content="img/pantalones/p1.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_DO">
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- NAVBAR (estándar en todo el sitio) -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-scrolled">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">NO<span class="brand-dot">·</span>NAME</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-uppercase align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="camisetas.html">Camisetas</a></li>
+          <li class="nav-item"><a class="nav-link active" href="pantalones.html">Pantalones</a></li>
+          <li class="nav-item"><a class="nav-link" href="noticias.html">Noticias</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link" href="enlaces.html">Enlaces de interés</a></li>
+          <li class="nav-item">
+            <a class="nav-link position-relative" href="checkout.html" id="cartIcon">
+              <i class="bi bi-bag fs-5"></i>
+              <span class="badge rounded-pill bg-light text-dark cart-badge" id="navCartCount">0</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <button class="dark-toggle-btn" id="darkToggleBtn" aria-label="Activar o desactivar modo oscuro">
+              <i class="bi bi-moon-stars"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BANNER PRINCIPAL -->
+  <header class="page-banner">
+    <div class="container">
+      <p class="eyebrow eyebrow-light">Colección</p>
+      <h1 class="section-title text-white mb-0">PANTALONES</h1>
+    </div>
+  </header>
+
+  <!-- INTRODUCCIÓN BREVE -->
+  <section class="page-intro">
+    <div class="container">
+      <p class="section-text">
+        Jeans de lavado exclusivo, cargos funcionales y sweatpants de felpa pesada — 20 piezas pensadas para
+        moverse contigo sin perder la silueta NO NAME: cortes amplios, materiales duraderos y detalles que
+        no gritan, pero se notan.
+      </p>
+    </div>
+  </section>
+
+  <!-- GRID DE PRODUCTOS (20 pantalones) -->
+  <section class="product-grid-section">
+    <div class="container">
+      <div class="row g-4">
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">PT / 01</span>
+            <img src="img/pantalones/p1.webp" class="card-img-top" alt="Jean Recto Denim Oscuro" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Jean Recto Denim Oscuro</h5>
+              <p class="card-text">Denim rígido de lavado oscuro, corte recto y costuras contrastantes en hilo dorado.</p>
+              <p class="product-price mb-2">RD$ 3,800</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Jean Recto Denim Oscuro" data-img="img/pantalones/p1.webp" data-desc="Denim rígido de lavado oscuro, corte recto y costuras contrastantes en hilo dorado." data-precio="RD$ 3,800">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">PT / 02</span>
+            <img src="img/pantalones/p2.webp" class="card-img-top" alt="Jean Ancho Lavado Claro" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Jean Ancho Lavado Claro</h5>
+              <p class="card-text">Denim de lavado claro desgastado, silueta ancha y bolsillo trasero con costura visible.</p>
+              <p class="product-price mb-2">RD$ 3,600</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Jean Ancho Lavado Claro" data-img="img/pantalones/p2.webp" data-desc="Denim de lavado claro desgastado, silueta ancha y bolsillo trasero con costura visible." data-precio="RD$ 3,600">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">PT / 03</span>
+            <img src="img/pantalones/p3.webp" class="card-img-top" alt="Jean Negro Desteñido" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Jean Negro Desteñido</h5>
+              <p class="card-text">Denim negro desteñido con efecto degradado, corte relajado de pierna ancha.</p>
+              <p class="product-price mb-2">RD$ 3,900</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Jean Negro Desteñido" data-img="img/pantalones/p3.webp" data-desc="Denim negro desteñido con efecto degradado, corte relajado de pierna ancha." data-precio="RD$ 3,900">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">PT / 04</span>
+            <img src="img/pantalones/p4.webp" class="card-img-top" alt="Jean Negro Corte Recto" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Jean Negro Corte Recto</h5>
+              <p class="card-text">Denim negro lavado, silueta recta clásica, ideal para el día a día.</p>
+              <p class="product-price mb-2">RD$ 3,700</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Jean Negro Corte Recto" data-img="img/pantalones/p4.webp" data-desc="Denim negro lavado, silueta recta clásica, ideal para el día a día." data-precio="RD$ 3,700">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">PT / 05</span>
+            <img src="img/pantalones/p5.webp" class="card-img-top" alt="Sweatpants Beige Jaspeado" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Sweatpants Beige Jaspeado</h5>
+              <p class="card-text">Felpa jaspeada con estampado "Limited Edition Worldwide" en la pierna.</p>
+              <p class="product-price mb-2">RD$ 2,900</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Sweatpants Beige Jaspeado" data-img="img/pantalones/p5.webp" data-desc="Felpa jaspeada con estampado "Limited Edition Worldwide" en la pierna." data-precio="RD$ 2,900">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">PT / 06</span>
+            <img src="img/pantalones/p6.webp" class="card-img-top" alt="Jean Gris Efecto Desgastado" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Jean Gris Efecto Desgastado</h5>
+              <p class="card-text">Denim gris claro con lavado irregular y textura envejecida.</p>
+              <p class="product-price mb-2">RD$ 3,650</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Jean Gris Efecto Desgastado" data-img="img/pantalones/p6.webp" data-desc="Denim gris claro con lavado irregular y textura envejecida." data-precio="RD$ 3,650">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">PT / 07</span>
+            <img src="img/pantalones/p7.webp" class="card-img-top" alt="Pantalón Deportivo Azul Marino" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Pantalón Deportivo Azul Marino</h5>
+              <p class="card-text">Tejido técnico con ribete blanco lateral y cordón ajustable en la cintura.</p>
+              <p class="product-price mb-2">RD$ 2,800</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Pantalón Deportivo Azul Marino" data-img="img/pantalones/p7.webp" data-desc="Tejido técnico con ribete blanco lateral y cordón ajustable en la cintura." data-precio="RD$ 2,800">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">PT / 08</span>
+            <img src="img/pantalones/p8.webp" class="card-img-top" alt="Sweatpants Negro Gráfico" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Sweatpants Negro Gráfico</h5>
+              <p class="card-text">Felpa negra con estampado gótico "Worldwide" en la pierna.</p>
+              <p class="product-price mb-2">RD$ 2,950</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Sweatpants Negro Gráfico" data-img="img/pantalones/p8.webp" data-desc="Felpa negra con estampado gótico "Worldwide" en la pierna." data-precio="RD$ 2,950">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">PT / 09</span>
+            <img src="img/pantalones/p9.webp" class="card-img-top" alt="Sweatpants Gris Jaspeado Premium" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Sweatpants Gris Jaspeado Premium</h5>
+              <p class="card-text">Felpa técnica gris jaspeada, corte recto amplio, tacto suave.</p>
+              <p class="product-price mb-2">RD$ 3,100</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Sweatpants Gris Jaspeado Premium" data-img="img/pantalones/p9.webp" data-desc="Felpa técnica gris jaspeada, corte recto amplio, tacto suave." data-precio="RD$ 3,100">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">PT / 10</span>
+            <img src="img/pantalones/p10.webp" class="card-img-top" alt="Pantalón Cargo Gris Carbón" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Pantalón Cargo Gris Carbón</h5>
+              <p class="card-text">Cargo de sarga con bolsillos laterales funcionales y cintura elástica.</p>
+              <p class="product-price mb-2">RD$ 3,400</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Pantalón Cargo Gris Carbón" data-img="img/pantalones/p10.webp" data-desc="Cargo de sarga con bolsillos laterales funcionales y cintura elástica." data-precio="RD$ 3,400">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">PT / 11</span>
+            <img src="img/pantalones/p11.webp" class="card-img-top" alt="Pantalón Chino Beige Amplio" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Pantalón Chino Beige Amplio</h5>
+              <p class="card-text">Corte amplio de pierna recta en algodón chino, cintura con pinzas.</p>
+              <p class="product-price mb-2">RD$ 3,200</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Pantalón Chino Beige Amplio" data-img="img/pantalones/p11.webp" data-desc="Corte amplio de pierna recta en algodón chino, cintura con pinzas." data-precio="RD$ 3,200">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">PT / 12</span>
+            <img src="img/pantalones/p12.webp" class="card-img-top" alt="Pantalón de Vestir Rayas Azul" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Pantalón de Vestir Rayas Azul</h5>
+              <p class="card-text">Rayas finas, corte ancho con detalle de cadena decorativa. Estilo formal-urbano.</p>
+              <p class="product-price mb-2">RD$ 4,200</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Pantalón de Vestir Rayas Azul" data-img="img/pantalones/p12.webp" data-desc="Rayas finas, corte ancho con detalle de cadena decorativa. Estilo formal-urbano." data-precio="RD$ 4,200">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">PT / 13</span>
+            <img src="img/pantalones/p13.webp" class="card-img-top" alt="Sweatpants Negro Básico" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Sweatpants Negro Básico</h5>
+              <p class="card-text">Felpa negra lisa, silueta amplia y bolsillos laterales.</p>
+              <p class="product-price mb-2">RD$ 2,700</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Sweatpants Negro Básico" data-img="img/pantalones/p13.webp" data-desc="Felpa negra lisa, silueta amplia y bolsillos laterales." data-precio="RD$ 2,700">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">PT / 14</span>
+            <img src="img/pantalones/p14.webp" class="card-img-top" alt="Pantalón Rayas Azul Marino Clásico" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Pantalón Rayas Azul Marino Clásico</h5>
+              <p class="card-text">Rayas finas en tono azul marino, corte acampanado, estilo sastre.</p>
+              <p class="product-price mb-2">RD$ 4,100</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Pantalón Rayas Azul Marino Clásico" data-img="img/pantalones/p14.webp" data-desc="Rayas finas en tono azul marino, corte acampanado, estilo sastre." data-precio="RD$ 4,100">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">PT / 15</span>
+            <img src="img/pantalones/p15.webp" class="card-img-top" alt="Sweatpants Gris Antracita" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Sweatpants Gris Antracita</h5>
+              <p class="card-text">Felpa gris antracita con cordón blanco contrastante en la cintura.</p>
+              <p class="product-price mb-2">RD$ 2,850</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Sweatpants Gris Antracita" data-img="img/pantalones/p15.webp" data-desc="Felpa gris antracita con cordón blanco contrastante en la cintura." data-precio="RD$ 2,850">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">PT / 16</span>
+            <img src="img/pantalones/p16.webp" class="card-img-top" alt="Pantalón Negro Fluido" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Pantalón Negro Fluido</h5>
+              <p class="card-text">Tejido fluido negro, caída suelta, ideal para looks minimalistas.</p>
+              <p class="product-price mb-2">RD$ 3,500</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Pantalón Negro Fluido" data-img="img/pantalones/p16.webp" data-desc="Tejido fluido negro, caída suelta, ideal para looks minimalistas." data-precio="RD$ 3,500">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">PT / 17</span>
+            <img src="img/pantalones/p17.webp" class="card-img-top" alt="Sweatpants Negro Técnico" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Sweatpants Negro Técnico</h5>
+              <p class="card-text">Felpa técnica negra con costuras curvas y bolsillos ocultos.</p>
+              <p class="product-price mb-2">RD$ 3,050</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Sweatpants Negro Técnico" data-img="img/pantalones/p17.webp" data-desc="Felpa técnica negra con costuras curvas y bolsillos ocultos." data-precio="RD$ 3,050">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">PT / 18</span>
+            <img src="img/pantalones/p18.webp" class="card-img-top" alt="Sweatpants Azul Cielo" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Sweatpants Azul Cielo</h5>
+              <p class="card-text">Felpa azul cielo con bordado "Official Collection" en la pierna.</p>
+              <p class="product-price mb-2">RD$ 2,900</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Sweatpants Azul Cielo" data-img="img/pantalones/p18.webp" data-desc="Felpa azul cielo con bordado "Official Collection" en la pierna." data-precio="RD$ 2,900">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">PT / 19</span>
+            <img src="img/pantalones/p19.webp" class="card-img-top" alt="Sweatpants Beige Claro" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Sweatpants Beige Claro</h5>
+              <p class="card-text">Felpa color hueso con bordado tonal "Official Collection".</p>
+              <p class="product-price mb-2">RD$ 2,900</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Sweatpants Beige Claro" data-img="img/pantalones/p19.webp" data-desc="Felpa color hueso con bordado tonal "Official Collection"." data-precio="RD$ 2,900">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">PT / 20</span>
+            <img src="img/pantalones/p20.webp" class="card-img-top" alt="Short Deportivo Negro" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Short Deportivo Negro</h5>
+              <p class="card-text">Short de felpa negra con cordón ajustable, ideal para uso casual o deportivo.</p>
+              <p class="product-price mb-2">RD$ 1,800</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Short Deportivo Negro" data-img="img/pantalones/p20.webp" data-desc="Short de felpa negra con cordón ajustable, ideal para uso casual o deportivo." data-precio="RD$ 1,800">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL DE PRODUCTO (reutilizado en toda la tienda) -->
+  <div class="modal fade" id="modalProducto" tabindex="-1" aria-labelledby="modalProductoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content rounded-0">
+        <div class="modal-header border-0">
+          <h5 class="modal-title text-uppercase" id="modalProductoLabel">Producto</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row g-4">
+            <div class="col-md-5">
+              <img src="" id="modalImg" class="img-fluid" alt="Producto seleccionado">
+            </div>
+            <div class="col-md-7">
+              <p id="modalDesc" class="mb-3"></p>
+              <p class="fw-semibold" id="modalPrecio"></p>
+              <button type="button" class="btn btn-dark rounded-0 mt-2" id="addToCartBtn">Añadir al carrito</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+      <p class="mb-0">NO<span class="brand-dot">·</span>NAME © 2026. Todos los derechos reservados. |
+        <a href="politicas.html" class="text-decoration-underline" style="color:inherit;">Políticas de Privacidad</a>
+      </p>
+      <div class="social-icons">
+        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+        <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        <a href="#" aria-label="X (Twitter)"><i class="bi bi-twitter-x"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BOTÓN FLOTANTE -->
+  <button id="btnVolverArriba" class="btn-floating" aria-label="Volver arriba">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enlaces de Interés — NO NAME</title>
+  <meta name="description" content="Video sobre Bootstrap y ubicación de nuestro showroom en Google Maps." />
+
+  <meta name="keywords" content="enlaces de interés, video bootstrap, ubicación NO NAME, showroom">
+  <meta name="author" content="NO NAME">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0a0a0a">
+
+  <meta property="og:title" content="Enlaces de Interés — NO NAME">
+  <meta property="og:description" content="Video y ubicación de NO NAME.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_DO">
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-scrolled">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">NO<span class="brand-dot">·</span>NAME</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-uppercase align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="camisetas.html">Camisetas</a></li>
+          <li class="nav-item"><a class="nav-link" href="pantalones.html">Pantalones</a></li>
+          <li class="nav-item"><a class="nav-link" href="noticias.html">Noticias</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link active" href="enlaces.html">Enlaces de interés</a></li>
+          <li class="nav-item">
+            <a class="nav-link position-relative" href="checkout.html" id="cartIcon">
+              <i class="bi bi-bag fs-5"></i>
+              <span class="badge rounded-pill bg-light text-dark cart-badge" id="navCartCount">0</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <button class="dark-toggle-btn" id="darkToggleBtn" aria-label="Activar o desactivar modo oscuro">
+              <i class="bi bi-moon-stars"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="content-page-wrapper">
+    <div class="container">
+      <p class="eyebrow">Recursos</p>
+      <h1 class="section-title mb-5">ENLACES DE INTERÉS</h1>
+
+      <div class="row g-5">
+        <div class="col-lg-6">
+          <h2 class="h5 text-uppercase mb-3">Video: Bootstrap en acción</h2>
+          <p class="section-text mb-3" style="max-width:none;">
+            Este sitio fue construido con Bootstrap 5. Aquí un video introductorio sobre el framework.
+          </p>
+          <div class="ratio ratio-16x9 video-frame">
+            <iframe src="https://www.youtube.com/embed/6lnGSCterVw" title="Video sobre Bootstrap" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <h2 class="h5 text-uppercase mb-3">Ubicación: Showroom NO NAME</h2>
+          <p class="section-text mb-3" style="max-width:none;">
+            Visítanos en nuestro showroom en Santo Domingo.
+          </p>
+          <div class="ratio ratio-16x9 map-frame">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15127.626557159197!2d-69.9498!3d18.4784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ea5f1b9c1234567%3A0x123456789abcdef!2sSanto%20Domingo!5e0!3m2!1ses!2sdo!4v1700000000000"
+              allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación NO NAME">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+      <p class="mb-0">NO<span class="brand-dot">·</span>NAME © 2026. Todos los derechos reservados. |
+        <a href="politicas.html" class="text-decoration-underline" style="color:inherit;">Políticas de Privacidad</a>
+      </p>
+      <div class="social-icons">
+        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+        <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        <a href="#" aria-label="X (Twitter)"><i class="bi bi-twitter-x"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <button id="btnVolverArriba" class="btn-floating" aria-label="Volver arriba">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

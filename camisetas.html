@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Metadatos básicos -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Camisetas — NO NAME</title>
+  <meta name="description" content="Descubre la colección de camisetas y camisas NO NAME: gráficas, básicas y de tejido texturizado, con cortes oversize." />
+
+  <!-- Metadatos SEO adicionales -->
+  <meta name="keywords" content="camisetas streetwear, camisas, hoodies, quarter zip, ropa urbana, NO NAME">
+  <meta name="author" content="NO NAME">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0a0a0a">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Camisetas — NO NAME">
+  <meta property="og:description" content="Colección de camisetas y camisas NO NAME: gráficas, básicas y texturizadas.">
+  <meta property="og:image" content="img/camisetas/c1.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_DO">
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- NAVBAR (estándar en todo el sitio) -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-scrolled">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">NO<span class="brand-dot">·</span>NAME</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-uppercase align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link active" href="camisetas.html">Camisetas</a></li>
+          <li class="nav-item"><a class="nav-link" href="pantalones.html">Pantalones</a></li>
+          <li class="nav-item"><a class="nav-link" href="noticias.html">Noticias</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link" href="enlaces.html">Enlaces de interés</a></li>
+          <li class="nav-item">
+            <a class="nav-link position-relative" href="checkout.html" id="cartIcon">
+              <i class="bi bi-bag fs-5"></i>
+              <span class="badge rounded-pill bg-light text-dark cart-badge" id="navCartCount">0</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <button class="dark-toggle-btn" id="darkToggleBtn" aria-label="Activar o desactivar modo oscuro">
+              <i class="bi bi-moon-stars"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BANNER PRINCIPAL -->
+  <header class="page-banner">
+    <div class="container">
+      <p class="eyebrow eyebrow-light">Colección</p>
+      <h1 class="section-title text-white mb-0">CAMISETAS</h1>
+    </div>
+  </header>
+
+  <!-- INTRODUCCIÓN BREVE -->
+  <section class="page-intro">
+    <div class="container">
+      <p class="section-text">
+        Gráficas, básicos oversize y camisas de tejido texturizado — 20 piezas para la parte de arriba del look,
+        pensadas para combinar entre sí sin esfuerzo dentro de la paleta NO NAME.
+      </p>
+    </div>
+  </section>
+
+  <!-- GRID DE PRODUCTOS (20 camisetas) -->
+  <section class="product-grid-section">
+    <div class="container">
+      <div class="row g-4">
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">CM / 01</span>
+            <img src="img/camisetas/c1.webp" class="card-img-top" alt="Camisa Sun-Ripened Coral" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Camisa Sun-Ripened Coral</h5>
+              <p class="card-text">Camisa de rayas finas con estampado gráfico "Peach & Love", manga corta, algodón ligero.</p>
+              <p class="product-price mb-2">RD$ 3,300</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Camisa Sun-Ripened Coral" data-img="img/camisetas/c1.webp" data-desc="Camisa de rayas finas con estampado gráfico "Peach & Love", manga corta, algodón ligero." data-precio="RD$ 3,300">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">CM / 02</span>
+            <img src="img/camisetas/c2.webp" class="card-img-top" alt="Hoodie Zip Cruces Bordadas" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Hoodie Zip Cruces Bordadas</h5>
+              <p class="card-text">Felpa azul marino con bordado de cruces estilizadas y cierre completo con capucha.</p>
+              <p class="product-price mb-2">RD$ 4,700</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Hoodie Zip Cruces Bordadas" data-img="img/camisetas/c2.webp" data-desc="Felpa azul marino con bordado de cruces estilizadas y cierre completo con capucha." data-precio="RD$ 4,700">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">CM / 03</span>
+            <img src="img/camisetas/c3.webp" class="card-img-top" alt="Camisa Textura Celeste" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Camisa Textura Celeste</h5>
+              <p class="card-text">Camisa de tejido texturizado en celeste, cuello camisero y manga corta.</p>
+              <p class="product-price mb-2">RD$ 3,100</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Camisa Textura Celeste" data-img="img/camisetas/c3.webp" data-desc="Camisa de tejido texturizado en celeste, cuello camisero y manga corta." data-precio="RD$ 3,100">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">CM / 04</span>
+            <img src="img/camisetas/c4.webp" class="card-img-top" alt="Camisa Textura Azul Marino" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Camisa Textura Azul Marino</h5>
+              <p class="card-text">Camisa de tejido acanalado en azul marino profundo, corte relajado.</p>
+              <p class="product-price mb-2">RD$ 3,150</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Camisa Textura Azul Marino" data-img="img/camisetas/c4.webp" data-desc="Camisa de tejido acanalado en azul marino profundo, corte relajado." data-precio="RD$ 3,150">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">CM / 05</span>
+            <img src="img/camisetas/c5.webp" class="card-img-top" alt="Hoodie Gris Pizarra" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Hoodie Gris Pizarra</h5>
+              <p class="card-text">Felpa lisa gris pizarra, bolsillo canguro y capucha forrada.</p>
+              <p class="product-price mb-2">RD$ 3,600</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Hoodie Gris Pizarra" data-img="img/camisetas/c5.webp" data-desc="Felpa lisa gris pizarra, bolsillo canguro y capucha forrada." data-precio="RD$ 3,600">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">CM / 06</span>
+            <img src="img/camisetas/c6.webp" class="card-img-top" alt="Quarter Zip Homme Division" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Quarter Zip Homme Division</h5>
+              <p class="card-text">Media cremallera negra con bordado dorado "Homme Division", cuello alto.</p>
+              <p class="product-price mb-2">RD$ 3,900</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Quarter Zip Homme Division" data-img="img/camisetas/c6.webp" data-desc="Media cremallera negra con bordado dorado "Homme Division", cuello alto." data-precio="RD$ 3,900">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">CM / 07</span>
+            <img src="img/camisetas/c7.webp" class="card-img-top" alt="Hoodie Negro Básico" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Hoodie Negro Básico</h5>
+              <p class="card-text">Felpa negra lisa, silueta oversize y bolsillo frontal amplio.</p>
+              <p class="product-price mb-2">RD$ 3,500</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Hoodie Negro Básico" data-img="img/camisetas/c7.webp" data-desc="Felpa negra lisa, silueta oversize y bolsillo frontal amplio." data-precio="RD$ 3,500">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">CM / 08</span>
+            <img src="img/camisetas/c8.webp" class="card-img-top" alt="Camisa Negra Bolsillo" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Camisa Negra Bolsillo</h5>
+              <p class="card-text">Camisa manga corta negra con bolsillo frontal, corte boxy.</p>
+              <p class="product-price mb-2">RD$ 3,050</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Camisa Negra Bolsillo" data-img="img/camisetas/c8.webp" data-desc="Camisa manga corta negra con bolsillo frontal, corte boxy." data-precio="RD$ 3,050">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">CM / 09</span>
+            <img src="img/camisetas/c9.webp" class="card-img-top" alt="Quarter Zip Azul Marino" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Quarter Zip Azul Marino</h5>
+              <p class="card-text">Media cremallera lisa en azul marino, cuello alto acanalado.</p>
+              <p class="product-price mb-2">RD$ 3,750</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Quarter Zip Azul Marino" data-img="img/camisetas/c9.webp" data-desc="Media cremallera lisa en azul marino, cuello alto acanalado." data-precio="RD$ 3,750">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">CM / 10</span>
+            <img src="img/camisetas/c10.webp" class="card-img-top" alt="Camiseta C'homme Rosa" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Camiseta C'homme Rosa</h5>
+              <p class="card-text">Camiseta rosa pastel con bordado "Édition Limitée Exclusivité Mondiale".</p>
+              <p class="product-price mb-2">RD$ 2,400</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Camiseta C'homme Rosa" data-img="img/camisetas/c10.webp" data-desc="Camiseta rosa pastel con bordado "Édition Limitée Exclusivité Mondiale"." data-precio="RD$ 2,400">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">CM / 11</span>
+            <img src="img/camisetas/c11.webp" class="card-img-top" alt="Camiseta Negra LMTDEDTN" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Camiseta Negra LMTDEDTN</h5>
+              <p class="card-text">Camiseta negra oversize con print minimalista "lmtdedtn" en el pecho.</p>
+              <p class="product-price mb-2">RD$ 2,300</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Camiseta Negra LMTDEDTN" data-img="img/camisetas/c11.webp" data-desc="Camiseta negra oversize con print minimalista "lmtdedtn" en el pecho." data-precio="RD$ 2,300">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">CM / 12</span>
+            <img src="img/camisetas/c12.webp" class="card-img-top" alt="Camiseta Verde Oversize" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Camiseta Verde Oversize</h5>
+              <p class="card-text">Camiseta verde bosque, cuello alto, silueta oversize.</p>
+              <p class="product-price mb-2">RD$ 2,350</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Camiseta Verde Oversize" data-img="img/camisetas/c12.webp" data-desc="Camiseta verde bosque, cuello alto, silueta oversize." data-precio="RD$ 2,350">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">CM / 13</span>
+            <img src="img/camisetas/c13.webp" class="card-img-top" alt="Camiseta Taupe LMTDEDTN" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Camiseta Taupe LMTDEDTN</h5>
+              <p class="card-text">Camiseta color taupe con print "Exclusive Collection Established MMXXIII".</p>
+              <p class="product-price mb-2">RD$ 2,450</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Camiseta Taupe LMTDEDTN" data-img="img/camisetas/c13.webp" data-desc="Camiseta color taupe con print "Exclusive Collection Established MMXXIII"." data-precio="RD$ 2,450">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">CM / 14</span>
+            <img src="img/camisetas/c14.webp" class="card-img-top" alt="Camisa Rayas Beige" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Camisa Rayas Beige</h5>
+              <p class="card-text">Camisa de rayas verticales beige y negro, tejido texturizado, manga corta.</p>
+              <p class="product-price mb-2">RD$ 3,200</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Camisa Rayas Beige" data-img="img/camisetas/c14.webp" data-desc="Camisa de rayas verticales beige y negro, tejido texturizado, manga corta." data-precio="RD$ 3,200">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">CM / 15</span>
+            <img src="img/camisetas/c15.webp" class="card-img-top" alt="Camisa Negra St. Tropez" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Camisa Negra St. Tropez</h5>
+              <p class="card-text">Camisa negra con estampado gráfico "St. Tropez" y palmeras en la espalda.</p>
+              <p class="product-price mb-2">RD$ 3,400</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Camisa Negra St. Tropez" data-img="img/camisetas/c15.webp" data-desc="Camisa negra con estampado gráfico "St. Tropez" y palmeras en la espalda." data-precio="RD$ 3,400">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">CM / 16</span>
+            <img src="img/camisetas/c16.webp" class="card-img-top" alt="Camisa Chocolate Bolsillo Bordado" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Camisa Chocolate Bolsillo Bordado</h5>
+              <p class="card-text">Camisa marrón chocolate con bolsillo bordado "Worldwide", manga corta.</p>
+              <p class="product-price mb-2">RD$ 3,350</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Camisa Chocolate Bolsillo Bordado" data-img="img/camisetas/c16.webp" data-desc="Camisa marrón chocolate con bolsillo bordado "Worldwide", manga corta." data-precio="RD$ 3,350">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">CM / 17</span>
+            <img src="img/camisetas/c17.webp" class="card-img-top" alt="Hoodie Gris Jaspeado Man" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Hoodie Gris Jaspeado Man</h5>
+              <p class="card-text">Felpa gris jaspeada con bordado "Man" tonal en el pecho.</p>
+              <p class="product-price mb-2">RD$ 3,650</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Hoodie Gris Jaspeado Man" data-img="img/camisetas/c17.webp" data-desc="Felpa gris jaspeada con bordado "Man" tonal en el pecho." data-precio="RD$ 3,650">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">CM / 18</span>
+            <img src="img/camisetas/c18.webp" class="card-img-top" alt="Camiseta Oso Nude Project" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Camiseta Oso Nude Project</h5>
+              <p class="card-text">Camiseta marrón con estampado de oso de peluche y logo "Nude Project" en la espalda.</p>
+              <p class="product-price mb-2">RD$ 2,600</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Camiseta Oso Nude Project" data-img="img/camisetas/c18.webp" data-desc="Camiseta marrón con estampado de oso de peluche y logo "Nude Project" en la espalda." data-precio="RD$ 2,600">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">CM / 19</span>
+            <img src="img/camisetas/c19.webp" class="card-img-top" alt="Camiseta Cancha de Tenis" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Camiseta Cancha de Tenis</h5>
+              <p class="card-text">Camiseta marrón con gráfico ilustrado de cancha de tenis y texto "Leisure Club".</p>
+              <p class="product-price mb-2">RD$ 2,700</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Camiseta Cancha de Tenis" data-img="img/camisetas/c19.webp" data-desc="Camiseta marrón con gráfico ilustrado de cancha de tenis y texto "Leisure Club"." data-precio="RD$ 2,700">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="card product-card h-100">
+            <span class="mini-card-tag">CM / 20</span>
+            <img src="img/camisetas/c20.webp" class="card-img-top" alt="Camiseta Blanca Lambo" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Camiseta Blanca Lambo</h5>
+              <p class="card-text">Camiseta blanca con gráfico ilustrado de auto deportivo y frase irónica en la espalda.</p>
+              <p class="product-price mb-2">RD$ 2,500</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-auto" data-bs-toggle="modal" data-bs-target="#modalProducto"
+                data-producto="Camiseta Blanca Lambo" data-img="img/camisetas/c20.webp" data-desc="Camiseta blanca con gráfico ilustrado de auto deportivo y frase irónica en la espalda." data-precio="RD$ 2,500">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL DE PRODUCTO (reutilizado en toda la tienda) -->
+  <div class="modal fade" id="modalProducto" tabindex="-1" aria-labelledby="modalProductoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content rounded-0">
+        <div class="modal-header border-0">
+          <h5 class="modal-title text-uppercase" id="modalProductoLabel">Producto</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row g-4">
+            <div class="col-md-5">
+              <img src="" id="modalImg" class="img-fluid" alt="Producto seleccionado">
+            </div>
+            <div class="col-md-7">
+              <p id="modalDesc" class="mb-3"></p>
+              <p class="fw-semibold" id="modalPrecio"></p>
+              <button type="button" class="btn btn-dark rounded-0 mt-2" id="addToCartBtn">Añadir al carrito</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+      <p class="mb-0">NO<span class="brand-dot">·</span>NAME © 2026. Todos los derechos reservados. |
+        <a href="politicas.html" class="text-decoration-underline" style="color:inherit;">Políticas de Privacidad</a>
+      </p>
+      <div class="social-icons">
+        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+        <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        <a href="#" aria-label="X (Twitter)"><i class="bi bi-twitter-x"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BOTÓN FLOTANTE -->
+  <button id="btnVolverArriba" class="btn-floating" aria-label="Volver arriba">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
