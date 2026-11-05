@@ -29,6 +29,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
   <link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/tienda.css">
 </head>
 <body>
 
@@ -47,7 +48,7 @@
           <li class="nav-item"><a class="nav-link" href="noticias.html">Noticias</a></li>
           <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
           <li class="nav-item"><a class="nav-link" href="enlaces.html">Enlaces de interés</a></li>
-          <li class="nav-item"><a class="nav-link" href="admin.html">Iniciar sesión</a></li>
+          <li class="nav-item"><button type="button" class="nav-link" id="profileIcon" aria-label="Mi cuenta" aria-haspopup="dialog"><i class="bi bi-person-circle" aria-hidden="true"></i></button></li>
           <li class="nav-item">
             <a class="nav-link position-relative" href="checkout.html" id="cartIcon">
               <i class="bi bi-bag fs-5"></i>
@@ -77,49 +78,9 @@
         <div class="col-md-5 col-lg-4 order-md-last">
           <h4 class="d-flex justify-content-between align-items-center mb-3">
             <span class="cart-title">Tu carrito</span>
-            <span class="badge bg-dark rounded-pill" id="cartCount">3</span>
+            <span class="badge bg-dark rounded-pill" id="cartCount">0</span>
           </h4>
-          <ul class="list-group mb-3 cart-list">
-            <li class="list-group-item d-flex justify-content-between lh-sm">
-              <div>
-                <h6 class="my-0">Hoodie Zip Negro</h6>
-                <small class="text-muted">Talla M</small>
-              </div>
-              <span class="text-muted">RD$ 4,500</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between lh-sm">
-              <div>
-                <h6 class="my-0">Camisa Rayada Oversize</h6>
-                <small class="text-muted">Talla L</small>
-              </div>
-              <span class="text-muted">RD$ 3,200</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between lh-sm">
-              <div>
-                <h6 class="my-0">Quarter Zip Negro</h6>
-                <small class="text-muted">Talla S</small>
-              </div>
-              <span class="text-muted">RD$ 3,600</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between">
-              <div>
-                <span>Código promo</span>
-                <strong>NN10</strong>
-              </div>
-              <span class="text-success">−RD$ 1,130</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between total-row">
-              <span>Total (RD$)</span>
-              <strong>10,170</strong>
-            </li>
-          </ul>
-
-          <form class="card p-3 promo-form" id="promoForm">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Código de descuento" id="promoInput">
-              <button type="submit" class="btn btn-secondary">Aplicar</button>
-            </div>
-          </form>
+          <div id="orderSummary"></div>
         </div>
 
         <!-- ===================== FORMULARIO ===================== -->
@@ -193,65 +154,9 @@
 
             <hr class="my-4">
 
-            <div class="form-check mb-2">
-              <input type="checkbox" class="form-check-input" id="sameAddress">
-              <label class="form-check-label" for="sameAddress">La dirección de envío es la misma que la de facturación</label>
-            </div>
-            <div class="form-check mb-3">
-              <input type="checkbox" class="form-check-input" id="saveInfo">
-              <label class="form-check-label" for="saveInfo">Guardar esta información para la próxima vez</label>
-            </div>
-
-            <hr class="my-4">
-
-            <h5 class="mb-3">Método de pago</h5>
-
-            <div class="my-3">
-              <div class="form-check">
-                <input id="creditCard" name="paymentMethod" type="radio" class="form-check-input" checked required>
-                <label class="form-check-label" for="creditCard">Tarjeta de crédito</label>
-              </div>
-              <div class="form-check">
-                <input id="debitCard" name="paymentMethod" type="radio" class="form-check-input" required>
-                <label class="form-check-label" for="debitCard">Tarjeta de débito</label>
-              </div>
-              <div class="form-check">
-                <input id="transfer" name="paymentMethod" type="radio" class="form-check-input" required>
-                <label class="form-check-label" for="transfer">Transferencia bancaria</label>
-              </div>
-            </div>
-
-            <div class="row gy-3">
-              <div class="col-md-6">
-                <label for="ccName" class="form-label">Nombre en la tarjeta</label>
-                <input type="text" class="form-control" id="ccName" required>
-                <small class="text-muted">Nombre tal como aparece en la tarjeta.</small>
-                <div class="invalid-feedback">Este campo es obligatorio.</div>
-              </div>
-
-              <div class="col-md-6">
-                <label for="ccNumber" class="form-label">Número de tarjeta</label>
-                <input type="text" class="form-control" id="ccNumber" placeholder="0000 0000 0000 0000" required>
-                <div class="invalid-feedback">El número de tarjeta es obligatorio.</div>
-              </div>
-
-              <div class="col-md-3">
-                <label for="ccExpiration" class="form-label">Vencimiento</label>
-                <input type="text" class="form-control" id="ccExpiration" placeholder="MM/AA" required>
-                <div class="invalid-feedback">Fecha de vencimiento requerida.</div>
-              </div>
-
-              <div class="col-md-3">
-                <label for="ccCVV" class="form-label">CVV</label>
-                <input type="text" class="form-control" id="ccCVV" placeholder="123" required>
-                <div class="invalid-feedback">El código de seguridad es obligatorio.</div>
-              </div>
-            </div>
-
-            <hr class="my-4">
-
+            <p>Confirmación local del pedido. No se realizará ningún cargo.</p>
             <button class="btn btn-dark w-100 rounded-0 py-3" type="submit">
-              <i class="bi bi-lock-fill me-2"></i>Confirmar y pagar
+              <i class="bi bi-lock-fill me-2"></i>Confirmar pedido
             </button>
           </form>
         </div>
@@ -277,5 +182,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/script.js"></script>
+  <script type="module" src="js/tienda.js"></script>
 </body>
 </html>
