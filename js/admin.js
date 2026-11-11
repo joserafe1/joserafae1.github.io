@@ -1,3 +1,5 @@
+import { backend } from './backend.js';
+import { current, logout } from './cuentas.js';
 'use strict';
 const $=s=>document.querySelector(s);
 const pages={panel:'Panel Principal',clientes:'Clientes',productos:'Productos',pedidos:'Pedidos',facturas:'Facturas',pagos:'Pagos',configuracion:'Configuración'};
@@ -5,28 +7,18 @@ const titles={...pages,clientes:'Gestión de Clientes',productos:'Inventario de 
 const icons=['⊞','♙','◇','🛒','▤','▭','⚙'];
 const money=n=>'RD$ '+Number(n).toLocaleString('es-DO',{minimumFractionDigits:2,maximumFractionDigits:2});
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const bytes=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
-const base=b=>btoa(Array.from(new Uint8Array(b),c=>String.fromCharCode(c)).join(''));
-const store='no-name.admin.v1',today=()=>new Date().toLocaleDateString('sv-SE');
-let key,db,envelope,page,query='',filter='';
-$('#access').onsubmit=async e=>{
- e.preventDefault();const f=e.target,btn=f.querySelector('button');btn.disabled=true;
- try{
- const saved=localStorage.getItem(store);
- envelope=saved?JSON.parse(saved):await (await fetch('admin-inicial.json')).json();
- const raw=new TextEncoder().encode(f.email.value.trim().toLowerCase()+'\0'+f.password.value);
- const material=await crypto.subtle.importKey('raw',raw,'PBKDF2',false,['deriveKey']);
- const derived=await crypto.subtle.deriveKey({name:'PBKDF2',salt:bytes(envelope.salt),iterations:600000,hash:'SHA-256'},material,{name:'AES-GCM',length:256},false,['encrypt','decrypt']);
- const plain=await crypto.subtle.decrypt({name:'AES-GCM',iv:bytes(envelope.iv)},derived,bytes(envelope.data));
- db=JSON.parse(new TextDecoder().decode(plain));key=derived;f.reset();$('#login').hidden=true;$('#shell').hidden=false;route();
- }catch(err){$('#error').textContent=err.name==='OperationError'?'Correo o contraseña incorrectos.':'No se pudo abrir el panel. Recarga la página e inténtalo de nuevo.'}finally{btn.disabled=false}
+const today=()=>new Date().toLocaleDateString('sv-SE');
+let db,version,page,query='',filter='';
+$('#logout').onclick=async()=>{
+ try{await logout();location.replace('index.html#login')}
+ catch{alert('No se pudo cerrar la sesión. Inténtalo de nuevo.')}
 };
-$('#logout').onclick=()=>location.replace('admin.html');
-window.addEventListener('storage',e=>{if(key&&(e.key===store||e.key===null))location.reload()});
 async function persist(){
- const iv=crypto.getRandomValues(new Uint8Array(12));
- const data=await crypto.subtle.encrypt({name:'AES-GCM',iv},key,new TextEncoder().encode(JSON.stringify(db)));
- localStorage.setItem(store,JSON.stringify({salt:envelope.salt,iv:base(iv),data:base(data)}));
+ const client=await backend();
+ const {data,error}=await client.from('administracion')
+  .update({datos:db,version:version+1}).eq('id',1).eq('version',version).select('version').single();
+ if(error)throw new Error('No se pudo guardar. Recarga el panel para recuperar los últimos cambios.');
+ version=data.version;
 }
 function route(){if(!db)return;page=location.hash.slice(1);if(!Object.hasOwn(pages,page))page='panel';query='';filter='';render()}
 window.onhashchange=route;
@@ -48,7 +40,7 @@ function dashboard(){
 }
 function field(name,label,value='',type='text',attrs='required'){return '<label>'+label+'<input name="'+name+'" type="'+type+'" value="'+esc(value)+'" '+attrs+'></label>'}
 function choice(name,label,items){return '<label>'+label+'<select required name="'+name+'">'+items.map(([v,t])=>'<option value="'+esc(v)+'">'+esc(t)+'</option>').join('')+'</select></label>'}
-function settings(){const c=db.company;return '<div class="panels">'+card('Datos de la empresa','<p>Esta información aparece en el encabezado de las facturas.</p><form id="company">'+field('name','Nombre de la empresa',c.name)+['Documento fiscal','Teléfono','Correo','Dirección'].map((l,i)=>field('info'+i,l,c['info'+i],i===2?'email':'text','')).join('')+field('tax','IVA por defecto (%)',c.tax,'number','required min="0" max="100" step=".01"')+field('note','Nota al pie de la factura',c.note,'text','')+'<button>Guardar cambios</button></form>')+card('Roles y permisos','<h3>Administrador</h3><p>Acceso a clientes, inventario, pedidos, facturación, cobros y configuración.</p><small>Los registros se guardan cifrados en este navegador.</small>')+'</div>'}
+function settings(){const c=db.company;return '<div class="panels">'+card('Datos de la empresa','<p>Esta información aparece en el encabezado de las facturas.</p><form id="company">'+field('name','Nombre de la empresa',c.name)+['Documento fiscal','Teléfono','Correo','Dirección'].map((l,i)=>field('info'+i,l,c['info'+i],i===2?'email':'text','')).join('')+field('tax','IVA por defecto (%)',c.tax,'number','required min="0" max="100" step=".01"')+field('note','Nota al pie de la factura',c.note,'text','')+'<button>Guardar cambios</button></form>')+card('Roles y permisos','<h3>Administrador</h3><p>Acceso a clientes, inventario, pedidos, facturación, cobros y configuración.</p><small>Los registros se guardan en la base de datos de NO NAME.</small>')+'</div>'}
 function listing(){
  let tools='',heads,rows;
  const search=placeholder=>'<input id="search" aria-label="Buscar" placeholder="'+placeholder+'" value="'+esc(query)+'">';
@@ -118,3 +110,21 @@ $('#content').onclick=e=>{
  if(list)modal('Eliminar registro','<p>¿Eliminar '+esc(id)+'?</p>',()=>{db[list]=db[list].filter(x=>x.id!==id)});
  }
 };
+
+async function initializeAdmin(){
+ try{
+  const profile=await current();
+  if(profile?.rol!=='admin'){location.replace('index.html#login');return}
+  const client=await backend();
+  const {data,error}=await client.from('administracion').select('datos,version').eq('id',1).single();
+  if(error)throw error;
+  db=data.datos;version=data.version;
+  $('#login').hidden=true;$('#shell').hidden=false;route();
+  client.auth.onAuthStateChange(event=>{
+   if(event==='SIGNED_OUT')location.replace('index.html#login');
+  });
+ }catch{
+  location.replace('index.html#login');
+ }
+}
+initializeAdmin();
