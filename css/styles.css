@@ -121,7 +121,8 @@ a { text-decoration: none; }
 /* ---------- Hero / Carousel ---------- */
 header#inicio { margin-top: 0; }
 .carousel-img {
-  height: 92vh;
+  height: 100vh;
+  height: 100svh;
   min-height: 560px;
   object-fit: cover;
   filter: brightness(0.55);
