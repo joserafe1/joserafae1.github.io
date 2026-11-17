@@ -540,6 +540,10 @@ a:focus-visible, button:focus-visible {
    ========================================================================== */
 
 body.dark-mode {
+  --nn-surface: #1a1a1a;
+  --nn-border: #505050;
+  --nn-text: #ededed;
+  --nn-muted: #bdbdbd;
   background-color: #0e0e0e;
   color: #ededed;
 }
@@ -553,11 +557,33 @@ body.dark-mode .section-text {
   color: #b5b5b5;
 }
 
-body.dark-mode .product-card,
-body.dark-mode .news-card,
-body.dark-mode .feature-box {
-  background-color: #1a1a1a;
-  color: #ededed;
+body.dark-mode :is(.card, .feature-box, .modal-content) {
+  background-color: var(--nn-surface);
+  color: var(--nn-text);
+  border-color: var(--nn-border);
+}
+
+body.dark-mode :is(.card-text, .news-date, .feature-box p) {
+  color: var(--nn-muted);
+}
+
+body.dark-mode :is(.feature-box i, .accordion-button) {
+  color: var(--nn-text);
+}
+
+body.dark-mode :is(.card-tag, .mini-card-tag, .nn-size select) {
+  background-color: #303030;
+  color: var(--nn-text);
+}
+
+body.dark-mode :is(.modal-content, .card) .btn-dark {
+  background-color: #333;
+  border-color: #777;
+  color: var(--nn-text);
+}
+
+body.dark-mode :is(.modal-content, .card) .btn-dark:is(:hover, :focus-visible) {
+  background-color: #484848;
 }
 
 body.dark-mode .feature-box {

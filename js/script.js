@@ -92,6 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const darkToggleBtns = document.querySelectorAll('.dark-toggle-btn');
 
   function applyDarkMode(isDark) {
+    document.body.dataset.bsTheme = isDark ? 'dark' : 'light';
     document.body.classList.toggle('dark-mode', isDark);
     darkToggleBtns.forEach(btn => {
       const icon = btn.querySelector('i');
