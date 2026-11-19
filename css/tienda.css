@@ -15,3 +15,35 @@ body.dark-mode .nn-dialog .nn-primary:hover { background-color: #484848; }
 body.dark-mode .nn-dialog :is(.nn-line, .nn-options, article) { border-color: var(--line); }
 body.dark-mode .nn-dialog .nn-note { color: var(--nn-muted); }
 body.dark-mode .nn-dialog [role=alert] { color: #ffaba2; }
+
+/* Lista de deseos */
+#wishlistIcon{display:inline-flex;align-items:center}.nn-heart-button{position:absolute;top:12px;right:12px;z-index:3;width:40px;height:40px;border:0;border-radius:50%;background:#fff;color:#181818;box-shadow:0 2px 9px #0002;font-size:19px;display:grid;place-items:center;cursor:pointer}.nn-heart-button.is-saved{color:#d22}.nn-wish-remove{padding:5px 0;text-decoration:underline}.nn-wishlist .nn-empty{margin:0 0 12px}
+
+/* Página de favoritos */
+.wishlist-page{min-height:70vh;color:var(--nn-text,#111)}.wishlist-heading{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:800;margin:1.5rem 0 .4rem}.wishlist-subtitle{color:#777;margin-bottom:1.5rem}.wishlist-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px}.wishlist-product{border:1px solid #ddd;border-radius:10px;overflow:hidden;background:#fff;color:#111}.wishlist-product img{display:block;width:100%;height:300px;object-fit:cover;background:#eee}.wishlist-product-info{padding:16px}.wishlist-product-info h2{font-size:17px;font-weight:650}.wishlist-empty{grid-column:1/-1;min-height:320px;border:1px solid #ddd;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px}.wishlist-empty>.bi{font-size:45px;color:#a5202a;margin-bottom:12px}.wishlist-empty h2{font-size:22px;font-weight:700}.wishlist-empty p{color:#666}.nn-heart-button{top:12px;right:12px}
+
+.nn-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  margin-inline-start: .75rem;
+}
+.nn-nav-actions .nav-link {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 40px;
+  padding: 0;
+  color: var(--bs-navbar-active-color, #fff);
+}
+.nn-nav-actions #profileIcon span { display: none; }
+.nn-heart-glyph { font: 26px/1 Arial, sans-serif; }
+#wishlistIcon .cart-badge { position: absolute; }
+@media (max-width: 991.98px) {
+  .navbar .nn-nav-actions { order: 1; }
+  .navbar:has(.nn-nav-actions) .navbar-toggler { order: 2; margin-inline-start: .5rem; }
+  .navbar:has(.nn-nav-actions) .navbar-collapse { order: 3; }
+  .navbar:has(.nn-nav-actions) .navbar-brand { margin-inline-end: auto; }
+}

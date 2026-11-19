@@ -55,19 +55,20 @@
           <li class="nav-item"><a class="nav-link" href="noticias.html">Noticias</a></li>
           <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
           <li class="nav-item"><a class="nav-link" href="enlaces.html">Enlaces de interés</a></li>
-          <li class="nav-item"><button type="button" class="nav-link" id="profileIcon" aria-label="Mi cuenta" aria-haspopup="dialog"><i class="bi bi-person-circle" aria-hidden="true"></i></button></li>
-          <li class="nav-item">
-            <a class="nav-link position-relative" href="checkout.html" id="cartIcon">
-              <i class="bi bi-bag fs-5"></i>
-              <span class="badge rounded-pill bg-light text-dark cart-badge" id="navCartCount">0</span>
-            </a>
-          </li>
           <li class="nav-item">
             <button class="dark-toggle-btn" id="darkToggleBtn" aria-label="Activar o desactivar modo oscuro">
               <i class="bi bi-moon-stars"></i>
             </button>
           </li>
         </ul>
+      </div>
+      <div class="nn-nav-actions">
+        <button type="button" class="nav-link" id="profileIcon" aria-label="Mi cuenta" aria-haspopup="dialog"><i class="bi bi-person-circle" aria-hidden="true"></i></button>
+        <a class="nav-link position-relative" href="favoritos.html" id="wishlistIcon" aria-label="Abrir lista de deseos"><span class="nn-heart-glyph" aria-hidden="true">&#9825;</span><span class="badge rounded-pill bg-light text-dark cart-badge" id="wishlistCount" hidden>0</span></a>
+        <a class="nav-link position-relative" href="checkout.html" id="cartIcon">
+              <i class="bi bi-bag fs-5"></i>
+              <span class="badge rounded-pill bg-light text-dark cart-badge" id="navCartCount">0</span>
+            </a>
       </div>
     </div>
   </nav>
@@ -146,78 +147,78 @@
 
         <!-- Card 1 -->
         <div class="col-md-6 col-lg-4">
-          <div class="card product-card h-100">
+          <div class="card product-card h-100" data-product-card>
             <span class="card-tag">NN / 01</span>
             <img src="img/card1.webp" class="card-img-top" alt="Camisa rayada oversize">
             <div class="card-body">
               <h5 class="card-title">Camisa Rayada Oversize</h5>
               <p class="card-text">Algodón popelín de peso medio, corte relajado y manga corta. Una pieza versátil entre el streetwear y lo formal.</p>
-              <button type="button" class="btn btn-dark rounded-0" data-bs-toggle="modal" data-bs-target="#modalProducto" data-producto="Camisa Rayada Oversize" data-img="img/card1.webp" data-desc="Confeccionada en popelín 100% algodón. Corte oversize con hombro caído y botonadura completa. Ideal para looks de entretiempo, combina con básicos blancos o negros." data-precio="RD$ 3,200">Ver más</button>
+              <button type="button" class="nn-heart-button" data-wishlist data-name="Camisa Rayada Oversize" data-img="img/card1.webp" data-price="RD$ 3,200" aria-label="Guardar en lista de deseos" aria-pressed="false"><span class="nn-heart-glyph" aria-hidden="true">&#9825;</span></button><button type="button" class="btn btn-dark rounded-0" data-bs-toggle="modal" data-bs-target="#modalProducto" data-producto="Camisa Rayada Oversize" data-img="img/card1.webp" data-desc="Confeccionada en popelín 100% algodón. Corte oversize con hombro caído y botonadura completa. Ideal para looks de entretiempo, combina con básicos blancos o negros." data-precio="RD$ 3,200">Ver más</button>
             </div>
           </div>
         </div>
 
         <!-- Card 2 -->
         <div class="col-md-6 col-lg-4">
-          <div class="card product-card h-100">
+          <div class="card product-card h-100" data-product-card>
             <span class="card-tag">NN / 02</span>
             <img src="img/card2.webp" class="card-img-top" alt="Hoodie zip negro">
             <div class="card-body">
               <h5 class="card-title">Hoodie Zip Negro</h5>
               <p class="card-text">Cierre completo, felpa de 400gsm y bordado tonal en pecho. Silueta amplia para máxima comodidad.</p>
-              <button type="button" class="btn btn-dark rounded-0" data-bs-toggle="modal" data-bs-target="#modalProducto" data-producto="Hoodie Zip Negro" data-img="img/card2.webp" data-desc="Felpa premium de 400gsm cepillada por dentro. Cierre YKK, capucha forrada y bordado tonal 'NO NAME' en el pecho. Fit oversize unisex." data-precio="RD$ 4,500">Ver más</button>
+              <button type="button" class="nn-heart-button" data-wishlist data-name="Hoodie Zip Negro" data-img="img/card2.webp" data-price="RD$ 4,500" aria-label="Guardar en lista de deseos" aria-pressed="false"><span class="nn-heart-glyph" aria-hidden="true">&#9825;</span></button><button type="button" class="btn btn-dark rounded-0" data-bs-toggle="modal" data-bs-target="#modalProducto" data-producto="Hoodie Zip Negro" data-img="img/card2.webp" data-desc="Felpa premium de 400gsm cepillada por dentro. Cierre YKK, capucha forrada y bordado tonal 'NO NAME' en el pecho. Fit oversize unisex." data-precio="RD$ 4,500">Ver más</button>
             </div>
           </div>
         </div>
 
         <!-- Card 3 -->
         <div class="col-md-6 col-lg-4">
-          <div class="card product-card h-100">
+          <div class="card product-card h-100" data-product-card>
             <span class="card-tag">NN / 03</span>
             <img src="img/card3.webp" class="card-img-top" alt="Hoodie bordado espalda">
             <div class="card-body">
               <h5 class="card-title">Hoodie Bordado Espalda</h5>
               <p class="card-text">Bordado artesanal a gran escala en la espalda. Pieza statement, producción limitada.</p>
-              <button type="button" class="btn btn-dark rounded-0" data-bs-toggle="modal" data-bs-target="#modalProducto" data-producto="Hoodie Bordado Espalda" data-img="img/card3.webp" data-desc="Bordado tonal de gran formato inspirado en grabados clásicos. Algodón grueso de 450gsm, cuello alto y puños acanalados. Edición limitada." data-precio="RD$ 5,800">Ver más</button>
+              <button type="button" class="nn-heart-button" data-wishlist data-name="Hoodie Bordado Espalda" data-img="img/card3.webp" data-price="RD$ 5,800" aria-label="Guardar en lista de deseos" aria-pressed="false"><span class="nn-heart-glyph" aria-hidden="true">&#9825;</span></button><button type="button" class="btn btn-dark rounded-0" data-bs-toggle="modal" data-bs-target="#modalProducto" data-producto="Hoodie Bordado Espalda" data-img="img/card3.webp" data-desc="Bordado tonal de gran formato inspirado en grabados clásicos. Algodón grueso de 450gsm, cuello alto y puños acanalados. Edición limitada." data-precio="RD$ 5,800">Ver más</button>
             </div>
           </div>
         </div>
 
         <!-- Card 4 -->
         <div class="col-md-6 col-lg-4">
-          <div class="card product-card h-100">
+          <div class="card product-card h-100" data-product-card>
             <span class="card-tag">NN / 04</span>
             <img src="img/card4.webp" class="card-img-top" alt="Hoodie gráfico frontal">
             <div class="card-body">
               <h5 class="card-title">Hoodie Gráfico Frontal</h5>
               <p class="card-text">Estampado gráfico en pecho sobre base negra. Felpa cepillada y capucha con cordón plano.</p>
-              <button type="button" class="btn btn-dark rounded-0" data-bs-toggle="modal" data-bs-target="#modalProducto" data-producto="Hoodie Gráfico Frontal" data-img="img/card4.webp" data-desc="Gráfico frontal serigrafiado, base negra 100% algodón. Cordón plano a tono y bolsillo canguro reforzado. Fit regular." data-precio="RD$ 4,200">Ver más</button>
+              <button type="button" class="nn-heart-button" data-wishlist data-name="Hoodie Gráfico Frontal" data-img="img/card4.webp" data-price="RD$ 4,200" aria-label="Guardar en lista de deseos" aria-pressed="false"><span class="nn-heart-glyph" aria-hidden="true">&#9825;</span></button><button type="button" class="btn btn-dark rounded-0" data-bs-toggle="modal" data-bs-target="#modalProducto" data-producto="Hoodie Gráfico Frontal" data-img="img/card4.webp" data-desc="Gráfico frontal serigrafiado, base negra 100% algodón. Cordón plano a tono y bolsillo canguro reforzado. Fit regular." data-precio="RD$ 4,200">Ver más</button>
             </div>
           </div>
         </div>
 
         <!-- Card 5 -->
         <div class="col-md-6 col-lg-4">
-          <div class="card product-card h-100">
+          <div class="card product-card h-100" data-product-card>
             <span class="card-tag">NN / 05</span>
             <img src="img/card5.webp" class="card-img-top" alt="Hoodie azul marino parche">
             <div class="card-body">
               <h5 class="card-title">Hoodie Azul Marino Parche</h5>
               <p class="card-text">Parche bordado central sobre azul marino profundo. Un guiño lúdico dentro de la paleta sobria.</p>
-              <button type="button" class="btn btn-dark rounded-0" data-bs-toggle="modal" data-bs-target="#modalProducto" data-producto="Hoodie Azul Marino Parche" data-img="img/card5.webp" data-desc="Base azul marino con parche bordado central. Felpa de 380gsm, bolsillo frontal y ajuste regular. Detalle diferenciador dentro de la colección." data-precio="RD$ 4,000">Ver más</button>
+              <button type="button" class="nn-heart-button" data-wishlist data-name="Hoodie Azul Marino Parche" data-img="img/card5.webp" data-price="RD$ 4,000" aria-label="Guardar en lista de deseos" aria-pressed="false"><span class="nn-heart-glyph" aria-hidden="true">&#9825;</span></button><button type="button" class="btn btn-dark rounded-0" data-bs-toggle="modal" data-bs-target="#modalProducto" data-producto="Hoodie Azul Marino Parche" data-img="img/card5.webp" data-desc="Base azul marino con parche bordado central. Felpa de 380gsm, bolsillo frontal y ajuste regular. Detalle diferenciador dentro de la colección." data-precio="RD$ 4,000">Ver más</button>
             </div>
           </div>
         </div>
 
         <!-- Card 6 -->
         <div class="col-md-6 col-lg-4">
-          <div class="card product-card h-100">
+          <div class="card product-card h-100" data-product-card>
             <span class="card-tag">NN / 06</span>
             <img src="img/card6.webp" class="card-img-top" alt="Quarter zip negro">
             <div class="card-body">
               <h5 class="card-title">Quarter Zip Negro</h5>
               <p class="card-text">Media cremallera, cuello alto acanalado y logo minimalista al pecho. El básico que nunca falta.</p>
-              <button type="button" class="btn btn-dark rounded-0" data-bs-toggle="modal" data-bs-target="#modalProducto" data-producto="Quarter Zip Negro" data-img="img/card6.webp" data-desc="Media cremallera metálica, cuello alto acanalado y logotipo bordado minimalista. Felpa de 350gsm, ideal para uso diario." data-precio="RD$ 3,600">Ver más</button>
+              <button type="button" class="nn-heart-button" data-wishlist data-name="Quarter Zip Negro" data-img="img/card6.webp" data-price="RD$ 3,600" aria-label="Guardar en lista de deseos" aria-pressed="false"><span class="nn-heart-glyph" aria-hidden="true">&#9825;</span></button><button type="button" class="btn btn-dark rounded-0" data-bs-toggle="modal" data-bs-target="#modalProducto" data-producto="Quarter Zip Negro" data-img="img/card6.webp" data-desc="Media cremallera metálica, cuello alto acanalado y logotipo bordado minimalista. Felpa de 350gsm, ideal para uso diario." data-precio="RD$ 3,600">Ver más</button>
             </div>
           </div>
         </div>

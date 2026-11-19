@@ -3,7 +3,9 @@ const $=s=>document.querySelector(s);
 const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const money=v=>'RD$ '+v.toLocaleString('es-DO');
 const cartKey='nn.cart.items';
+const wishKey='nn.wishlist.items';
 function cart(){return JSON.parse(localStorage.getItem(cartKey)||'[]')}
+function wishes(){return JSON.parse(localStorage.getItem(wishKey)||'[]')}
 const total=items=>items.reduce((v,p)=>v+p.price*p.qty,0);
 const count=items=>items.reduce((v,p)=>v+p.qty,0);
 function dialog(cls,label){
@@ -23,6 +25,19 @@ function refresh(){
  if($('#orderSummary'))$('#orderSummary').innerHTML=list+(n?'<div class="nn-total">Total <b>'+money(total(items))+'</b></div>':'');
  if($('#checkoutForm'))$('#checkoutForm button[type=submit]').disabled=!n;
 }
+function refreshWishes(){
+ const items=wishes();
+ const badge = $('#wishlistCount');
+ if (badge) {
+  badge.textContent = items.length;
+  badge.hidden = items.length === 0;
+ }
+ if($('#wishlistIcon'))$('#wishlistIcon').setAttribute('aria-label','Abrir lista de deseos, '+items.length+' artículos');
+ const page=$('#wishlistPage');
+ if(page)page.innerHTML=items.length?items.map((p,i)=>`<article class="wishlist-product"><img src="${esc(p.img)}" alt="${esc(p.name)}"><div class="wishlist-product-info"><h2>${esc(p.name)}</h2><p>${money(p.price)}</p><button type="button" class="btn btn-outline-dark rounded-0" data-remove-wish="${i}"><i class="bi bi-trash3"></i> Quitar</button></div></article>`).join(''):'<div class="wishlist-empty"><i class="bi bi-heart"></i><h2>Aún no tienes favoritos</h2><p>Presiona el corazón de un producto para guardarlo aquí.</p><a class="btn btn-dark rounded-0" href="camisetas.html">EXPLORAR PRODUCTOS</a></div>';
+ document.querySelectorAll('[data-wishlist]').forEach(b=>{const p=b.closest('[data-product-card]');if(p){const saved=items.some(x=>x.name===b.dataset.name&&x.img===b.dataset.img);b.classList.toggle('is-saved',saved);b.setAttribute('aria-pressed',String(saved));b.querySelector('.nn-heart-glyph').textContent=saved?'\u2665':'\u2661';b.setAttribute('aria-label',saved?'Quitar de la lista de deseos':'Guardar en lista de deseos')}});
+}
+function saveWishes(items){localStorage.setItem(wishKey,JSON.stringify(items));refreshWishes()}
 function save(items){localStorage.setItem(cartKey,JSON.stringify(items));refresh()}
 function changeItem(e){
  const b=e.target.closest('[data-change]');if(!b)return;
@@ -31,8 +46,10 @@ function changeItem(e){
  save(items);
 }
 drawer.onclick=e=>{if(e.target.closest('[data-close]'))drawer.close();else changeItem(e)};
+$('#wishlistPage')?.addEventListener('click',e=>{const b=e.target.closest('[data-remove-wish]');if(!b)return;const items=wishes();items.splice(Number(b.dataset.removeWish),1);saveWishes(items)});
 $('#orderSummary')?.addEventListener('click',changeItem);
 $('#cartIcon')?.addEventListener('click',e=>{e.preventDefault();refresh();drawer.showModal()});
+document.addEventListener('click',e=>{const b=e.target.closest('[data-wishlist]');if(!b)return;e.preventDefault();const items=wishes(),i=items.findIndex(x=>x.name===b.dataset.name&&x.img===b.dataset.img);if(i>=0)items.splice(i,1);else items.push({name:b.dataset.name,img:b.dataset.img,price:Number((b.dataset.price||'').replace(/[^0-9.]/g,''))});saveWishes(items)});
 let selected;
 $('#modalProducto')?.addEventListener('show.bs.modal',e=>{const d=e.relatedTarget.dataset;selected={name:d.producto,img:d.img,price:Number(d.precio.replace(/[^0-9.]/g,''))};$('#nn-size').value='M'});
 $('#addToCartBtn')?.insertAdjacentHTML('beforebegin','<label class="nn-size">Talla <select id="nn-size"><option>XS</option><option>S</option><option selected>M</option><option>L</option><option>XL</option></select></label>');
@@ -41,7 +58,7 @@ $('#addToCartBtn')?.addEventListener('click',()=>{
  if(p)p.qty++;else items.push({...selected,size,qty:1});save(items);
  const modal=$('#modalProducto');modal.addEventListener('hidden.bs.modal',()=>drawer.showModal(),{once:true});bootstrap.Modal.getInstance(modal).hide();
 });
-window.addEventListener('storage',e=>{if(e.key===cartKey)refresh()});window.addEventListener('pageshow',refresh);refresh();
+window.addEventListener('storage',e=>{if(e.key===cartKey)refresh();if(e.key===wishKey)refreshWishes()});window.addEventListener('pageshow',()=>{refresh();refreshWishes()});refresh();refreshWishes();
 const sections={'Panel':'speedometer2','Mis pedidos':'box-seam','Mi información':'pencil-square','Notificaciones':'bell','Lista de notificaciones':'list-stars','Tarjetas de regalo':'gift'};
 let profile=null,destination='Panel',emailDraft='';
 try { profile=await current(); } catch { /* El formulario muestra los errores del servicio. */ }
