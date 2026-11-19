@@ -1,0 +1,97 @@
+.nn-customer {
+  --account-surface: #fff;
+  --account-muted: #646464;
+  --account-line: #e3e3e3;
+  --account-soft: #f5f5f4;
+  width: min(1136px, calc(100% - 2.5rem));
+  min-height: 75vh;
+  margin: clamp(2rem, 6vw, 5rem) auto;
+  display: grid;
+  grid-template-columns: 215px minmax(0, 1fr);
+  gap: clamp(1.5rem, 5vw, 4.5rem);
+}
+.dark-mode .nn-customer {
+  --account-surface: #171717;
+  --account-muted: #b3b3b3;
+  --account-line: #393939;
+  --account-soft: #242424;
+}
+.nn-customer-main > h1 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: .025em;
+  margin-bottom: 1.25rem;
+}
+.nn-customer-sidebar nav { display: grid; gap: .25rem; }
+.nn-customer-sidebar :is(a, button) {
+  display: flex;
+  gap: .7rem;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  padding: .65rem .75rem;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  border-radius: .35rem;
+}
+.nn-customer-sidebar [hidden] { display: none; }
+.nn-customer-sidebar :is(a, button):hover { background: var(--account-soft); }
+.nn-customer-sidebar [aria-current="page"] { background: var(--account-soft); font-weight: 700; }
+.nn-customer-secondary { border-block: 1px solid var(--account-line); margin-block: .45rem; padding-block: .45rem; }
+.nn-customer-sidebar .nn-customer-signout { margin-top: 1rem; color: #9e2525; }
+.dark-mode .nn-customer-sidebar .nn-customer-signout { color: #ff9191; }
+.nn-customer-identity { display: grid; gap: .15rem; margin-bottom: 2rem; }
+.nn-customer-identity strong { font-size: 1.35rem; }
+.nn-customer-identity span, .nn-order-info p, .nn-order-info small { color: var(--account-muted); }
+.nn-customer-section + .nn-customer-section { margin-top: 2rem; }
+.nn-customer-section header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .5rem; margin-bottom: .8rem; }
+.nn-customer-section h2 { font-size: 1.35rem; margin: 0; }
+.nn-customer-main a { color: inherit; text-decoration: underline; text-underline-offset: .2em; }
+.nn-order-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: .9rem; }
+.nn-order-card {
+  display: grid;
+  grid-template-columns: clamp(70px, 8vw, 106px) minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--account-line);
+  border-radius: .6rem;
+  background: var(--account-surface);
+}
+.nn-order-photos {
+  display: grid;
+  grid-template: repeat(2, minmax(0, 1fr)) / repeat(2, minmax(0, 1fr));
+  height: 130px;
+  gap: 2px;
+  overflow: hidden;
+  border-radius: .35rem;
+  background: var(--account-soft);
+}
+.nn-order-photos[data-photo-count="1"] { grid-template: 1fr / 1fr; }
+.nn-order-photos[data-photo-count="2"] { grid-template: 1fr / repeat(2, minmax(0, 1fr)); }
+.nn-order-photos img, .nn-favorite-preview img { width: 100%; height: 100%; object-fit: cover; min-height: 0; }
+.nn-image-placeholder { display: grid; place-items: center; background: var(--account-soft); }
+.nn-order-status { display: inline-block; font-size: .75rem; font-weight: 700; background: var(--account-soft); padding: .15rem .45rem; border-radius: .3rem; }
+.nn-order-info h3 { font-size: 1rem; font-weight: 700; margin: .35rem 0 .15rem; }
+.nn-order-info p { margin-bottom: .25rem; font-size: .9rem; }
+.nn-order-info summary { width: fit-content; margin-top: .5rem; cursor: pointer; }
+.nn-order-info ul { margin: .75rem 0 .25rem; padding-inline-start: 1rem; }
+.nn-order-info small { display: block; overflow-wrap: anywhere; }
+.nn-customer-empty { grid-column: 1 / -1; border: 1px dashed var(--account-line); padding: 1.25rem; border-radius: .6rem; margin: 0; }
+.nn-customer-empty button, .nn-orders-filter select { border: 1px solid var(--account-line); border-radius: .35rem; color: inherit; background: var(--account-surface); padding: .4rem .65rem; }
+.nn-orders-filter { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .75rem; margin-bottom: 1rem; }
+.nn-favorite-preview { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .8rem; }
+.nn-favorite-preview a { display: grid; grid-template-rows: auto 1fr; overflow: hidden; border: 1px solid var(--account-line); border-radius: .5rem; text-decoration: none; }
+.nn-favorite-preview :is(img, .nn-image-placeholder) { aspect-ratio: 4 / 5; }
+.nn-favorite-preview a > span:last-child { padding: .5rem; font-size: .9rem; }
+@media (max-width: 920px) {
+  .nn-order-grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 620px) {
+  .nn-customer { grid-template-columns: minmax(0, 1fr); }
+  .nn-customer-sidebar nav { display: flex; flex-wrap: wrap; }
+  .nn-customer-sidebar :is(a, button) { width: auto; }
+  .nn-customer-secondary { display: flex; flex-wrap: wrap; flex-basis: 100%; }
+  .nn-favorite-preview { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

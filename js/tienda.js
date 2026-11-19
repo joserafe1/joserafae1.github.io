@@ -1,9 +1,12 @@
+import { renderCustomerPage } from './panel.js';
 import {access,current,updateProfile,placeOrder,register,recover,resend,logout,watchSession} from './cuentas.js';
 const $=s=>document.querySelector(s);
 const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const money=v=>'RD$ '+v.toLocaleString('es-DO');
 const cartKey='nn.cart.items';
 const wishKey='nn.wishlist.items';
+const customerPage = $('[data-customer-page]');
+const accountRoutes = { Panel: 'cuenta.html', 'Mis pedidos': 'pedidos.html' };
 function cart(){return JSON.parse(localStorage.getItem(cartKey)||'[]')}
 function wishes(){return JSON.parse(localStorage.getItem(wishKey)||'[]')}
 const total=items=>items.reduce((v,p)=>v+p.price*p.qty,0);
@@ -60,8 +63,13 @@ $('#addToCartBtn')?.addEventListener('click',()=>{
 });
 window.addEventListener('storage',e=>{if(e.key===cartKey)refresh();if(e.key===wishKey)refreshWishes()});window.addEventListener('pageshow',()=>{refresh();refreshWishes()});refresh();refreshWishes();
 const sections={'Panel':'speedometer2','Mis pedidos':'box-seam','Mi información':'pencil-square','Notificaciones':'bell','Lista de notificaciones':'list-stars','Tarjetas de regalo':'gift'};
-let profile=null,destination='Panel',emailDraft='';
-try { profile=await current(); } catch { /* El formulario muestra los errores del servicio. */ }
+let profile=null,destination=null,emailDraft='';
+let profileError;
+try { profile=await current(); } catch (error) { profileError=error; }
+function showCustomer() {
+ renderCustomerPage(customerPage, profile, customerPage?.dataset.customerPage === 'panel' ? wishes() : [], profileError);
+}
+showCustomer();
 function accountLabel() {
  const button=$('#profileIcon');
  button.setAttribute('aria-label',profile?'Mi cuenta':'Iniciar sesión');
@@ -71,7 +79,9 @@ accountLabel();
 watchSession(async()=>{
  try {
   profile=await current();
+  profileError=undefined;
   accountLabel();
+  showCustomer();
   if(!profile && account.open)auth();
  } catch { /* Conserva el mensaje del formulario ante errores de red. */ }
 }).catch(()=>{});
@@ -104,9 +114,16 @@ function verification(){
  display(brand+'<h2>Confirma tu correo</h2><p>Revisa tu bandeja de entrada y abre el enlace de NO NAME para verificar tu cuenta. Revisa también la carpeta de spam.</p><form id="nn-resend"><input type="hidden" name="email" value="'+esc(emailDraft)+'"><p role="alert"></p><button class="nn-primary">Reenviar correo</button></form><button data-mode="login">Iniciar sesión</button>');
 }
 function section(s){
- destination=s;if(!profile)return auth();let body='';
- if(s==='Panel')body='<h3>'+esc(profile.name)+'</h3><p>'+esc(profile.email)+'</p><button data-page="Mis pedidos">Ver mis pedidos ('+profile.orders.length+')</button>';
- if(s==='Mis pedidos')body=profile.orders.length?profile.orders.map(o=>'<article><strong>Pedido '+esc(o.id)+'</strong><p>'+esc(o.date)+' · '+money(o.total)+'</p>'+o.items.map(p=>esc(p.name)+' · '+esc(p.size)+' × '+p.qty).join('<br>')+'</article>').join(''):'<p>Aún no tienes pedidos.</p>';
+ destination=s;
+ if(accountRoutes[s]){
+  if(customerPage && location.pathname.endsWith('/'+accountRoutes[s])){
+   account.close();
+   showCustomer();
+  }else location.assign(accountRoutes[s]);
+  return;
+ }
+ if(!profile)return auth();
+ let body='';
  if(s==='Mi información')body='<form id="nn-info"><label>Nombre<input name="name" required maxlength="80" value="'+esc(profile.name)+'"></label><p>'+esc(profile.email)+'</p><button class="nn-primary">Guardar cambios</button></form>';
  if(s==='Notificaciones')body='<form id="nn-notify"><label><input name="enabled" type="checkbox" '+(profile.notify?'checked':'')+'> Guardar avisos de nuevos pedidos</label><button class="nn-primary">Guardar preferencia</button></form>';
  if(s==='Lista de notificaciones')body=profile.orders.filter(o=>o.notice).map(o=>'<p>Pedido '+esc(o.id)+' registrado el '+esc(o.date)+'.</p>').join('')||'<p>Sin avisos de pedidos.</p>';
@@ -114,9 +131,41 @@ function section(s){
  display(brand+'<button data-menu>← Mi cuenta</button><h2>'+s+'</h2>'+body);
 }
 $('#profileIcon').onclick=async()=>{
- try{profile=await current();accountLabel();destination='Panel';if(profile)menu();else auth()}
+ try{profile=await current();accountLabel();destination=null;if(profile)menu();else auth()}
  catch(err){auth();account.querySelector('[role=alert]').textContent=err.message}
 };
+customerPage?.addEventListener('click', async event => {
+ const button=event.target.closest('button');
+ if(!button)return;
+ if(button.hasAttribute('data-customer-login')){
+  destination=null;
+  auth();
+ }else if(button.dataset.accountSection){
+  section(button.dataset.accountSection);
+ }else if(button.hasAttribute('data-customer-retry')){
+  button.disabled=true;
+  try{profile=await current();profileError=undefined;accountLabel()}
+  catch(error){profileError=error}
+  showCustomer();
+ }else if(button.hasAttribute('data-customer-logout')){
+  button.disabled=true;
+  try{
+   await logout();
+   profile=null;
+   profileError=undefined;
+   emailDraft='';
+   accountLabel();
+   showCustomer();
+  }catch(error){alert(error.message)}
+  finally{button.disabled=false}
+ }
+});
+window.addEventListener('storage',event=>{
+ if(event.key===wishKey && customerPage?.dataset.customerPage==='panel')showCustomer();
+});
+window.addEventListener('pageshow',event=>{
+ if(event.persisted && customerPage?.dataset.customerPage==='panel')showCustomer();
+});
 account.onclick=async e=>{const b=e.target.closest('button');if(!b)return;
  if(b.hasAttribute('data-close'))account.close();
  else if(b.dataset.mode){emailDraft=account.querySelector('[name=email]')?.value || emailDraft;auth(b.dataset.mode==='register')}
@@ -124,7 +173,7 @@ account.onclick=async e=>{const b=e.target.closest('button');if(!b)return;
  else if(b.hasAttribute('data-verify'))verification();
  else if(b.dataset.page)section(b.dataset.page);
  else if(b.hasAttribute('data-menu'))menu();
- else if(b.hasAttribute('data-exit')){try{await logout();profile=null;emailDraft='';accountLabel();auth()}catch(err){alert(err.message)}}
+ else if(b.hasAttribute('data-exit')){try{await logout();profile=null;emailDraft='';accountLabel();showCustomer();auth()}catch(err){alert(err.message)}}
 };
 account.onsubmit=async e=>{
  e.preventDefault();const f=e.target,v=Object.fromEntries(new FormData(f));
@@ -149,7 +198,10 @@ account.onsubmit=async e=>{
  }
  else if(f.id==='nn-info')await updateProfile({nombre:v.name.trim()});
  else await updateProfile({notificaciones:!!v.enabled});
- profile=await current();accountLabel();section(f.id==='nn-auth'?destination:'Panel');
+ profile=await current();profileError=undefined;accountLabel();showCustomer();
+ if(destination) section(destination);
+ else if(customerPage) account.close();
+ else menu();
  }catch(err){const msg=f.querySelector('[role=alert]');if(msg){
  msg.textContent=err.message;
  if(err.message.includes('Confirma tu correo'))msg.insertAdjacentHTML('afterend','<button type="button" data-verify>Reenviar verificación</button>');
