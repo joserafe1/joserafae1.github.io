@@ -6,7 +6,7 @@ const money=v=>'RD$ '+v.toLocaleString('es-DO');
 const cartKey='nn.cart.items';
 const wishKey='nn.wishlist.items';
 const customerPage = $('[data-customer-page]');
-const accountRoutes = { Panel: 'cuenta.html', 'Mis pedidos': 'pedidos.html' };
+const accountRoutes = { Panel: 'cuenta.html', 'Mis pedidos': 'pedidos.html', 'Mi información': 'mi-informacion.html' };
 function cart(){return JSON.parse(localStorage.getItem(cartKey)||'[]')}
 function wishes(){return JSON.parse(localStorage.getItem(wishKey)||'[]')}
 const total=items=>items.reduce((v,p)=>v+p.price*p.qty,0);
@@ -124,7 +124,6 @@ function section(s){
  }
  if(!profile)return auth();
  let body='';
- if(s==='Mi información')body='<form id="nn-info"><label>Nombre<input name="name" required maxlength="80" value="'+esc(profile.name)+'"></label><p>'+esc(profile.email)+'</p><button class="nn-primary">Guardar cambios</button></form>';
  if(s==='Notificaciones')body='<form id="nn-notify"><label><input name="enabled" type="checkbox" '+(profile.notify?'checked':'')+'> Guardar avisos de nuevos pedidos</label><button class="nn-primary">Guardar preferencia</button></form>';
  if(s==='Lista de notificaciones')body=profile.orders.filter(o=>o.notice).map(o=>'<p>Pedido '+esc(o.id)+' registrado el '+esc(o.date)+'.</p>').join('')||'<p>Sin avisos de pedidos.</p>';
  if(s==='Tarjetas de regalo')body='<p>No tienes tarjetas de regalo asignadas.</p>';
@@ -196,7 +195,6 @@ account.onsubmit=async e=>{
   f.querySelector('[role=alert]').textContent='Revisa tu bandeja de entrada para confirmar tu cuenta.';
   return;
  }
- else if(f.id==='nn-info')await updateProfile({nombre:v.name.trim()});
  else await updateProfile({notificaciones:!!v.enabled});
  profile=await current();profileError=undefined;accountLabel();showCustomer();
  if(destination) section(destination);

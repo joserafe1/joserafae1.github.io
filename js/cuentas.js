@@ -68,6 +68,7 @@ export async function current() {
   return {
     id: user.id, email: user.email, name: profile.nombre, lastName: profile.apellido,
     phone: profile.telefono, rol: profile.rol, notify: profile.notificaciones,
+    personal: user.user_metadata?.no_name_personal ?? {},
     orders: orders.map(order => ({ ...order, date: new Date(order.created_at).toLocaleDateString('es-DO') })),
   };
 }
@@ -78,6 +79,12 @@ export async function updateProfile(values) {
   const client = await backend();
   const { error } = await client.from('perfiles').update(values).eq('id', profile.id);
   if (error) throw new Error('No se pudo guardar el perfil.');
+}
+
+export async function updatePersonalInfo(values) {
+  const client = await backend();
+  const { error } = await client.auth.updateUser({ data: { no_name_personal: values } });
+  if (error) throw new Error('No se pudieron guardar tus datos personales.');
 }
 
 export async function placeOrder(items, delivery, requestId) {

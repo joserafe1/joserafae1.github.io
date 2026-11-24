@@ -95,3 +95,50 @@
   .nn-customer-secondary { display: flex; flex-wrap: wrap; flex-basis: 100%; }
   .nn-favorite-preview { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+
+.nn-info-content { display: grid; gap: 1.5rem; max-width: 840px; }
+.nn-info-section {
+  background: var(--account-surface);
+  border: 1px solid var(--account-line);
+  border-radius: .6rem;
+  padding: clamp(1rem, 3vw, 1.6rem);
+}
+.nn-info-section h2 { font-size: 1.35rem; margin-bottom: .65rem; }
+.nn-info-section dl { margin: 0; }
+.nn-info-row {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  padding-block: .7rem;
+  border-bottom: 1px solid var(--account-line);
+  overflow-wrap: anywhere;
+}
+.nn-info-row > i { display: grid; place-items: center; flex: 0 0 2.15rem; height: 2.15rem; border-radius: .4rem; background: var(--account-soft); }
+.nn-info-row dt { font-size: .83rem; color: var(--account-muted); font-weight: 500; }
+.nn-info-row dd { margin: 0; }
+.nn-info-editor { margin-top: .9rem; }
+.nn-info-editor summary { width: fit-content; cursor: pointer; font-weight: 700; }
+.nn-info-editor form { margin-top: .8rem; }
+.nn-info-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
+.nn-info-fields label { display: grid; gap: .25rem; font-size: .9rem; }
+.nn-info-fields input, .nn-info-save, .nn-address-actions button {
+  border: 1px solid var(--account-line);
+  border-radius: .35rem;
+  color: inherit;
+  background: var(--account-soft);
+  padding: .5rem .65rem;
+}
+.nn-info-fields input { width: 100%; min-width: 0; }
+.nn-info-save, .nn-address-actions { margin-top: .75rem; }
+.nn-info-save { font-weight: 700; }
+.nn-info-status:empty, .nn-info-error:empty { display: none; }
+.nn-info-error { margin: .5rem 0 0; }
+.nn-info-note { color: var(--account-muted); font-size: .9rem; }
+.nn-address-grid { display: grid; gap: .65rem; }
+.nn-address-card { border: 1px solid var(--account-line); border-radius: .4rem; padding: .85rem; overflow-wrap: anywhere; }
+.nn-address-card h3 { display: inline-block; font-size: 1rem; margin: 0 .4rem .35rem 0; }
+.nn-address-card address { color: var(--account-muted); margin: .25rem 0 0; }
+.nn-address-actions { display: flex; flex-wrap: wrap; gap: .5rem; }
+@media (max-width: 440px) {
+  .nn-info-fields { grid-template-columns: minmax(0, 1fr); }
+}

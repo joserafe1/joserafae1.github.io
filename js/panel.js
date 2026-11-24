@@ -1,3 +1,5 @@
+import { renderPersonalInfo } from './mi-informacion.js';
+
 const money = new Intl.NumberFormat('es-DO', { style: 'currency', currency: 'DOP' });
 const date = new Intl.DateTimeFormat('es-DO', { dateStyle: 'long', timeZone: 'America/Santo_Domingo' });
 const yearFormat = new Intl.DateTimeFormat('es-DO', { year: 'numeric', timeZone: 'America/Santo_Domingo' });
@@ -52,9 +54,17 @@ export function renderCustomerPage(page, profile, wishes, error) {
     element.hidden = !profile;
   });
   if (!profile) {
+    content.onclick = null;
+    content.onsubmit = null;
+    const status = page.querySelector('#customerInfoStatus');
+    if (status) status.textContent = '';
     content.innerHTML = error
       ? '<div class="nn-customer-empty"><p>No pudimos cargar tu cuenta. Intenta de nuevo.</p><button type="button" data-customer-retry>Reintentar</button></div>'
       : '<div class="nn-customer-empty"><p>Inicia sesión para ver tu cuenta y tus pedidos.</p><button type="button" data-customer-login>Iniciar sesión</button></div>';
+    return;
+  }
+  if (page.dataset.customerPage === 'info') {
+    renderPersonalInfo(page, profile);
     return;
   }
   const orders = profile.orders ?? [];
